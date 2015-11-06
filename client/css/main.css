@@ -1,8 +1,25 @@
 body {
-  padding: 50px;
+  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.carousel-img {
+  max-height: 830px;
+  width: 100%;
+}
+
+.carousel-caption {
+  padding-top: 100px;
+  top: 0;
+  bottom: auto;
+}
+
+.carousel-text {
+  font-size: 6em;
+  font-family: 'Special Elite', cursive;
+  text-shadow: 4px 4px 7px black;
 }

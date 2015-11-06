@@ -1,4 +1,4 @@
-# Training Mates
+# Training Mates/ Active Buddies
 
 
 ### Purpose
@@ -31,7 +31,7 @@ This is an app that can connect people who are training for different activities
 
 * Storm Path
 * O-Auth
-* Two Factor
+* Two Factor, Authy
 * Verify Email
 
 
@@ -39,3 +39,16 @@ This is an app that can connect people who are training for different activities
 
 1. Add lifting, golf, skiing, snowboarding
 2. Google maps pull in trails, pools, gyms
+3. Recommended trails from google api
+4. Pull pic from facebook..approve/deny a connection.
+Strata
+chat room/ messaging
+suggest trail
+
+
+## Profile page
+- suggested matches(based on similar sports/ times / weights/ whatever your comparing)
+- current matches
+- last exercise.
+
+
