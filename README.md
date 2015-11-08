@@ -1,4 +1,4 @@
-# Training Mates/ Active Buddies
+# Training Mates
 
 
 ### Purpose
@@ -50,5 +50,6 @@ suggest trail
 - suggested matches(based on similar sports/ times / weights/ whatever your comparing)
 - current matches
 - last exercise.
+- Active Buddies/ Stay Active/ Recess Buddies
 
 
