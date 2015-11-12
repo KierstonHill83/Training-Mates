@@ -7,6 +7,11 @@ app.config(function($routeProvider) {
       templateUrl: '../views/partials/home.html',
       access: { restricted: false },
     })
+    .when('/signup', {
+      controller: 'signUpController',
+      templateUrl:'../views/partials/signup.html',
+      // access: { restricted: true },
+    })
     .otherwise({
       redirectTo: '/'
     });
