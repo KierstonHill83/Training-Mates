@@ -9,6 +9,9 @@ a {
 
 .navbar {
   margin-bottom: 0;
+  background-color: black;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .headers {
@@ -119,7 +122,7 @@ a {
   margin-bottom: 20px;
 }
 
-.signup {
+.signup, .user {
   padding-top: 50px;
   text-align: center;
 }
@@ -127,4 +130,12 @@ a {
 .signup-form {
   border: 3px solid;
   padding: 15px;
+}
+
+.signin-form {
+  padding-top: 8px;
+}
+
+.user-welcome {
+  text-align: left;
 }

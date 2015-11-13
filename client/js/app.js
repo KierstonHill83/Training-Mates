@@ -10,6 +10,11 @@ app.config(function($routeProvider) {
     .when('/signup', {
       controller: 'signUpController',
       templateUrl:'../views/partials/signup.html',
+      access: { restricted: false },
+    })
+    .when('/user', {
+      controller: 'userController',
+      templateUrl: '../views/partials/user.html',
       // access: { restricted: true },
     })
     .otherwise({
