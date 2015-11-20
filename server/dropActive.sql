@@ -1,5 +1,5 @@
-drop TABLE friends cascade;
-drop TABLE userChatRooms cascade;
-drop TABLE activityProperty cascade;
-drop TABLE userActivity cascade;
-drop TABLE userInfo cascade;
+DROP TABLE friends;
+DROP TABLE userChatRooms;
+DROP TABLE activityProperty;
+DROP TABLE userActivity;
+DROP TABLE userInfo;

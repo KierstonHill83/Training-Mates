@@ -6,7 +6,7 @@ app.controller('userController', ['$scope', '$location', function($scope, $locat
     cityService.city = $scope.city;
   });
 
-  
+  $scope.submit  
 
 
 

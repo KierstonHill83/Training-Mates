@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var http = require('http');
 
 
 // *** routes *** //
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 
 // *** main routes *** //
+app.use('/', routes);
 app.use('/', function(req, res){
   res.sendFile(path.join(__dirname, '../client/views', 'index.html'));
 });
