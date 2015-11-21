@@ -1,0 +1,64 @@
+<!-- <div class="container">
+  <h1>Node-Express-Socket.io Boilerplate</h1>
+  <br>
+  <form id="socketform">
+    <input type="text" name="name" place="Input your name" id="m"/>
+    <button class="btn">Set Name</button>
+  </form>
+</div>
+
+<div class="container">
+  <br>
+  <form id="privateForm">
+    <label>Name of Person (p)</label> 
+    <-- my name here -->
+    <!-- <input type="text" name="name" place="Input name of Person" id="p"/>
+    <label>Name of Room (r)</label> --> <!-- invitee name here -->
+    <!-- <input type="text" name="room" place="Input name of Room" id="r"/>
+    <button class="btn">Create Private Chat</button>
+  </form>
+</div>
+
+<div class="container">
+  <br>
+  <form id="chatForm">
+    <input type="text" name="msg" place="Input your message" id="t"/>
+    <button class="btn">Send Message</button>
+  </form>
+  <div class="room">
+    <ul id="message"></ul>
+  </div>
+</div> -->
+
+<div class='container'>
+  <div ng-controller='SocketCtrl'>
+    You are known as: <span ng-bind="nickName"></span>.
+    <br/>
+    Change your nickname with <code>/nick [yourNewNick]</code>
+    <div class='row'>
+      <div class='col-md-9'>
+        <textarea style='width: 100%; height: 200px'
+             ng-disable='true' ng-model='messageLog'></textarea>
+      </div>
+    </div>
+    <div class='row'>
+      &nbsp;
+    </div>
+    <div class='row'>
+      <div class='col-md-8'>
+        <form role='form' novalidate name='form'>
+          <div class='form-group'>
+            <input type='text' style='width: 80%'
+            required
+            ng-max='50'
+            ng-model='message'
+            focus>
+            <button class='btn btn-sm btn-primary'
+              ng-enable='form.$valid'
+              ng-click="sendMessage(message)">Send!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

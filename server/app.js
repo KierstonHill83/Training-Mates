@@ -7,9 +7,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var http = require('http');
 
+var io = require('socket.io');
+var server = http.createServer(app);
+var io = io.listen(server);
+
 
 // *** routes *** //
 var routes = require('./routes/index.js');
+var chatSocket = require('./socket/base')(io);
+
+// *** start the server *** //
+server.listen(3000);
 
 
 // *** express instance *** //
