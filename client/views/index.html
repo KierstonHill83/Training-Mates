@@ -61,6 +61,37 @@
       </div><!-- /.container-fluid -->
     </nav>
 
+
+    <div class="container title-heading">
+      <h1>Chat Room</h1>
+      <br>
+      <form id="socketform">
+        <input type="text" name="name" place="Input your name" id="m"/>
+        <button class="btn">Set Name</button>
+      </form>
+    </div>
+    <div class="container">
+      <br>
+      <form id="privateForm">
+        <label>Name of Person (p)</label> <!-- my name here -->
+        <input type="text" name="name" place="Input name of Person" id="p"/>
+        <label>Name of Room (r)</label> <!-- invitee name here -->
+        <input type="text" name="room" place="Input name of Room" id="r"/>
+        <button class="btn">Create Private Chat</button>
+      </form>
+    </div>
+    <div class="container">
+      <br>
+      <form id="chatForm">
+        <input type="text" name="msg" place="Input your message" id="t"/>
+        <button class="btn">Send Message</button>
+      </form>
+      <div class="room">
+        <ul id="message"></ul>
+      </div>
+    </div>
+
+
     <div ng-view></div>
 
     <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -68,18 +99,20 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-route.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-animate.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    <script type="text/javascript" src="/js/socket.io-client.js"></script>
 
-    <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
 
-    <script type="text/javascript" src="/js/controllers/homeController.js"></script>
-    <script type="text/javascript" src="/js/controllers/signUpController.js"></script>
-    <script type="text/javascript" src="/js/controllers/userController.js"></script>
-    <script type="text/javascript" src="/js/controllers/googleMapsController.js"></script>
-    <script type="text/javascript" src="/js/controllers/chatRoomController.js"></script>
 
-    <script type="text/javascript" src="/js/services/googleMapsService.js"></script>
-    <script type="text/javascript" src="/js/services/chatRoomService.js"></script>
+
+    <!-- <script type="text/javascript" src="/js/controllers/homeController.js"></script>
+    // <script type="text/javascript" src="/js/controllers/signUpController.js"></script>
+    // <script type="text/javascript" src="/js/controllers/userController.js"></script>
+    // <script type="text/javascript" src="/js/controllers/googleMapsController.js"></script>
+    // <script type="text/javascript" src="/js/controllers/chatRoomController.js"></script>
+
+    // <script type="text/javascript" src="/js/services/googleMapsService.js"></script>
+    // <script type="text/javascript" src="/js/services/chatRoomService.js"></script> -->
 
 
   </body>

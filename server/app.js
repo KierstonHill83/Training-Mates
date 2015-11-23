@@ -1,79 +1,54 @@
-// *** main dependencies *** //
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var http = require('http');
-
-var io = require('socket.io');
-var server = http.createServer(app);
-var io = io.listen(server);
+var app = require('./app2.js');
 
 
-// *** routes *** //
-var routes = require('./routes/index.js');
-var chatSocket = require('./socket/base')(io);
+// Set the server to 3000
+app.set('port', process.env.PORT || 3000);
 
-// *** start the server *** //
-server.listen(3000);
-
-
-// *** express instance *** //
-var app = express();
-
-
-// *** static directory *** //
-app.set('views', path.join(__dirname, 'views'));
-
-
-// *** config middleware *** //
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../client')));
-
-
-// *** main routes *** //
-app.use('/', routes);
-app.use('/', function(req, res){
-  res.sendFile(path.join(__dirname, '../client/views', 'index.html'));
+var server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + server.address().port);
 });
 
+// add socket stuff here!
+var io = require('socket.io')(server);
+console.log('before connection');
+var rooms = [];
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-
-// *** error handlers *** //
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
+// Set the socket to the name that is entered. This is the username.
+io.on('connection', function(socket) {
+  console.log('inside first connection');
+  socket.on('setName', function(name) {
+    socket.name = name;
+    console.log(socket.name);
   });
-}
 
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
+  // Create a room that is named the name of the user. Push that into the rooms array so it can be
+  // saved and accessed easily. Join that room. Loop through the sockets that are connected and if 
+  // the name equals the name of the invitee, invite them to the private room.
+  socket.on('createRoom', function(name, invitee) {
+    socket.room = name;
+    rooms.push(name);
+    socket.join(name);
+    console.log('invitee ' +invitee);
+
+      for (a in io.sockets.connected) {
+        if (io.sockets.connected[a].name === invitee) {
+          // In the second input, put the name of the person you want the
+          // link sent to. It will  send as long as they are connected.
+          io.sockets.connected[a].emit('privateChat', '<a onclick="socket.emit(\'joinRoom\', \''+name+'\')">Join '+ socket.name +'\'s private chat</a>' );
+          break;
+        }
+      }
+  });
+  // Join that private room.
+  socket.on('joinRoom', function(name) {
+    socket.room = name;
+    socket.join(name);
+  });
+  // Send the messages between the 2 users.
+  socket.on('chat message', function(msg) {
+    // console.log(socket.room);
+    io.sockets.in(socket.room).emit('chat message', msg);
   });
 });
-
 
 module.exports = app;
